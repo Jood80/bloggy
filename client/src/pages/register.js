@@ -15,6 +15,7 @@ import {
   useColorModeValue,
   Select
 } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router-dom'
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
@@ -107,7 +108,7 @@ export default function Signup() {
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
-                Already a user? <Link color={'blue.400'}>Login</Link>
+                Already a user? <Link as={RouterLink} to='/login' color={'blue.400'}>Login</Link>
               </Text>
             </Stack>
           </Stack>

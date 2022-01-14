@@ -12,6 +12,8 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router-dom'
+
 
 export default function Signin() {
   return (
@@ -62,7 +64,7 @@ export default function Signin() {
           <Stack pt={6}>
             <Text align={'center'}>
               Don't have an account?
-              <Link color={'blue.400'}> Register</Link>
+              <Link as={RouterLink} to='/register' color={'blue.400'}> Register</Link>
             </Text>
           </Stack>
         </Box>
