@@ -13,14 +13,29 @@ import {
   Text,
   Link,
   useColorModeValue,
-  Select
+  Select,
+  FormErrorMessage,
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom'
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import { useForm } from 'react-hook-form'
+
+
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
+  const { handleSubmit, register, formState: { errors, isSubmitting } } = useForm()
+
+  const onSubmit = (values) => (
+    new Promise(resolve => {
+      setTimeout(() => {
+        alert(JSON.stringify(values, null, 2))
+        resolve()
+      }, 200)
+    })
+  )
+
 
   return (
     <Flex
@@ -43,69 +58,95 @@ export default function Signup() {
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
-            <HStack>
-              <Box>
-                <FormControl id="firstName" isRequired>
-                  <FormLabel>First Name</FormLabel>
-                  <Input type="text" />
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <HStack>
+                <Box>
+                  <FormControl isInvalid={errors.firstName} isRequired >
+                    <FormLabel htmlFor='firstName'>First Name</FormLabel>
+                    <Input
+                      id='firstName'
+                      {...register("firstName", {
+                        minLength: { value: 4, message: 'Minimum length should be 4' },
+                      })} />
+                    <FormErrorMessage>
+                      {errors.firstName && errors.firstName.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                </Box>
+                <Box>
+                  <FormControl isInvalid={errors.lastName} isRequired>
+                    <FormLabel htmlFor='lastName'>Last Name</FormLabel>
+                    <Input id="lastName" {...register("lastName")} />
+                    <FormErrorMessage>
+                      {errors.lastName && errors.lastName.message}
+                    </FormErrorMessage>
+                  </FormControl>
+                </Box>
+              </HStack>
+
+              <HStack>
+                <FormControl isInvalid={errors.email} isRequired>
+                  <FormLabel>Email address</FormLabel>
+                  <Input type="email" id="email" {...register("email")} />
+                  <FormErrorMessage>
+                    {errors.email && errors.email.message}
+                  </FormErrorMessage>
                 </FormControl>
-              </Box>
-              <Box>
-                <FormControl id="lastName">
-                  <FormLabel>Last Name</FormLabel>
-                  <Input type="text" />
+
+                <FormControl isInvalid={errors.password} isRequired >
+                  <FormLabel htmlFor='password'>Password</FormLabel>
+                  <InputGroup>
+                    <Input type={showPassword ? 'text' : 'password'} id="password"
+                      {...register("password", {
+                        minLength: { value: 7, message: 'Minimum length should be 7' }
+                      })} />
+                    <InputRightElement h={'full'}>
+                      <Button
+                        variant={'ghost'}
+                        onClick={() =>
+                          setShowPassword((showPassword) => !showPassword)}>
+                        {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                      </Button>
+                    </InputRightElement>
+                  </InputGroup>
+                  <FormErrorMessage>
+                    {errors.password && errors.password.message}
+                  </FormErrorMessage>
                 </FormControl>
-              </Box>
-            </HStack>
+              </HStack>
 
-            <HStack>
-              <FormControl id="email" isRequired>
-                <FormLabel>Email address</FormLabel>
-                <Input type="email" />
-              </FormControl>
-              <FormControl id="password" isRequired>
-                <FormLabel>Password</FormLabel>
-                <InputGroup>
-                  <Input type={showPassword ? 'text' : 'password'} />
-                  <InputRightElement h={'full'}>
-                    <Button
-                      variant={'ghost'}
-                      onClick={() =>
-                        setShowPassword((showPassword) => !showPassword)}>
-                      {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-              </FormControl>
-            </HStack>
+              <HStack>
+                <FormControl >
+                  <FormLabel htmlFor="code">Country code</FormLabel>
+                  <Select defaultValue='+970' id="code" {...register("code")}>
+                    <option value='+970'>+970</option>
+                    <option value='+962'>+962</option>
+                    <option value='+87'>+87</option>
+                    <option value='+90'>+90</option>
+                  </Select>
+                </FormControl>
+                <FormControl htmlFor='phone'>
+                  <FormLabel>Phone number</FormLabel>
+                  <Input id="phone" type="tel" {...register("phone")} />
+                </FormControl>
+              </HStack>
 
-            <HStack>
-              <FormControl id="phone" isRequired>
-                <FormLabel>Country code</FormLabel>
-                <Select placeholder='+970'>
-                  <option value='option1'>+962</option>
-                  <option value='option2'>+87</option>
-                  <option value='option3'>+90</option>
-                </Select>
-              </FormControl>
-              <FormControl id="phone" isRequired>
-                <FormLabel>Phone number</FormLabel>
-                <Input type="tel" />
-              </FormControl>
-            </HStack>
+              <Stack spacing={10} pt={2}>
+                <Button
+                  loadingText="Submitting"
+                  size="lg"
+                  bg={'blue.400'}
+                  color={'white'}
+                  _hover={{
+                    bg: 'blue.500',
+                  }}
+                  isLoading={isSubmitting}
+                  type='submit'>
+                  Sign up
+                </Button>
 
-            <Stack spacing={10} pt={2}>
-              <Button
-                loadingText="Submitting"
-                size="lg"
-                bg={'blue.400'}
-                color={'white'}
-                _hover={{
-                  bg: 'blue.500',
-                }}>
-                Sign up
-              </Button>
-            </Stack>
+              </Stack>
+            </form>
             <Stack pt={6}>
               <Text align={'center'}>
                 Already a user? <Link as={RouterLink} to='/login' color={'blue.400'}>Login</Link>
@@ -113,7 +154,7 @@ export default function Signup() {
             </Stack>
           </Stack>
         </Box>
-      </Stack>
-    </Flex>
+      </Stack >
+    </Flex >
   );
 }
