@@ -1,4 +1,5 @@
 # Fullstack-jereer-task
+![image](https://user-images.githubusercontent.com/56412800/149639125-c06a5a86-b578-4f98-916a-697aff9e923c.png)
 
 ### [Live demo](https://jereer-task-fullstack.herokuapp.com/)
 
