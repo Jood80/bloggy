@@ -15,27 +15,37 @@ import {
   useColorModeValue,
   Select,
   FormErrorMessage,
+  Alert,
+  AlertIcon
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom'
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useForm } from 'react-hook-form'
-
-
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
   const { handleSubmit, register, formState: { errors, isSubmitting } } = useForm()
+  const navigator = useNavigate()
+  const { signup } = useAuth()
 
-  const onSubmit = (values) => (
-    new Promise(resolve => {
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2))
-        resolve()
-      }, 200)
-    })
-  )
-
+  const onSubmit = async (values) => {
+    const { email, password } = values
+    try {
+      console.log(values)
+      await signup(email, password)
+      navigator('/home')
+    } catch (err) {
+      if (err.message.includes('already in use')) {
+        setError(`This Email is already in use`)
+      } else {
+        setError(err.message)
+      }
+    }
+  }
 
   return (
     <Flex
@@ -56,9 +66,9 @@ export default function Signup() {
           rounded={'lg'}
           bg={useColorModeValue('white', 'gray.700')}
           boxShadow={'lg'}
-          p={8}>
+          p={10}>
           <Stack spacing={4}>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} >
               <HStack>
                 <Box>
                   <FormControl isInvalid={errors.firstName} isRequired >
@@ -66,7 +76,7 @@ export default function Signup() {
                     <Input
                       id='firstName'
                       {...register("firstName", {
-                        minLength: { value: 4, message: 'Minimum length should be 4' },
+                        minLength: { value: 3, message: 'Minimum length should be 3' },
                       })} />
                     <FormErrorMessage>
                       {errors.firstName && errors.firstName.message}
@@ -116,7 +126,7 @@ export default function Signup() {
               </HStack>
 
               <HStack>
-                <FormControl >
+                <FormControl isRequired>
                   <FormLabel htmlFor="code">Country code</FormLabel>
                   <Select defaultValue='+970' id="code" {...register("code")}>
                     <option value='+970'>+970</option>
@@ -125,8 +135,8 @@ export default function Signup() {
                     <option value='+90'>+90</option>
                   </Select>
                 </FormControl>
-                <FormControl htmlFor='phone'>
-                  <FormLabel>Phone number</FormLabel>
+                <FormControl isRequired>
+                  <FormLabel htmlFor='phone'>Phone number</FormLabel>
                   <Input id="phone" type="tel" {...register("phone")} />
                 </FormControl>
               </HStack>
@@ -144,9 +154,14 @@ export default function Signup() {
                   type='submit'>
                   Sign up
                 </Button>
-
               </Stack>
             </form>
+            {error && (
+              <Alert status='error'>
+                <AlertIcon />
+                {error}
+              </Alert>)
+            }
             <Stack pt={6}>
               <Text align={'center'}>
                 Already a user? <Link as={RouterLink} to='/login' color={'blue.400'}>Login</Link>

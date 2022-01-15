@@ -11,11 +11,31 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  Alert,
+  AlertIcon
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom'
-
+import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
+import { useState } from 'react';
 
 export default function Signin() {
+  const { handleSubmit, register, formState: { errors, isSubmitting } } = useForm()
+  const [error, setError] = useState()
+  const { login } = useAuth()
+  const navigate = useNavigate()
+
+
+  const onSubmit = async ({ email, password }) => {
+    try {
+      await login(email, password)
+      navigate('/home')
+    } catch (err) {
+      setError('Failed to login. Wrong email or password')
+    }
+  }
+
   return (
     <Flex
       minH={'100vh'}
@@ -35,31 +55,45 @@ export default function Signin() {
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
-            <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
-              <Input type="email" />
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel>Password</FormLabel>
-              <Input type="password" />
-            </FormControl>
-            <Stack spacing={10}>
-              <Stack
-                direction={{ base: 'column', sm: 'row' }}
-                align={'start'}
-                justify={'space-between'}>
-                <Checkbox>Remember me</Checkbox>
-                <Link color={'blue.400'}>Forgot password?</Link>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <FormControl id="email">
+                <FormLabel >Email address</FormLabel>
+                <Input type="email" name='email' {...register('email')} />
+              </FormControl>
+              <FormControl id="password">
+                <FormLabel>Password</FormLabel>
+                <Input type="password" />
+              </FormControl>
+              <Stack spacing={6}>
+                <Stack
+                  direction={{ base: 'column', sm: 'row' }}
+                  align={'start'}
+                  justify={'space-between'}>
+                  <Link color={'blue.400'} pt={3}>Forgot password?</Link>
+                </Stack>
+                <Stack>
+
+                  <Button
+                    bg={'blue.400'}
+                    color={'white'}
+                    _hover={{
+                      bg: 'blue.500',
+                    }}
+                    isLoading={isSubmitting}
+                    type="submit"
+                  >
+                    Sign in
+                  </Button>
+                  {error && (
+                    <Alert status='error'>
+                      <AlertIcon />
+                      {error}
+                    </Alert>)
+                  }
+                </Stack>
+
               </Stack>
-              <Button
-                bg={'blue.400'}
-                color={'white'}
-                _hover={{
-                  bg: 'blue.500',
-                }}>
-                Sign in
-              </Button>
-            </Stack>
+            </form>
           </Stack>
           <Stack pt={6}>
             <Text align={'center'}>
