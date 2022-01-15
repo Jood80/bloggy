@@ -1,8 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
 
-import Signup from "./pages/register";
-import Signin from "./pages/login";
-import LandingPage from './pages/landing-page';
+import { LandingPage, Signup, Signin, Home, NotFound } from './pages'
+import PrivateRoute from './utils/private-route';
+
+
 
 function App() {
   return (
@@ -11,6 +12,12 @@ function App() {
         <Route exact path='/' element={<LandingPage />} />
         <Route path='register' element={<Signup />} />
         <Route path='login' element={<Signin />} />
+        <Route path='home' element={
+          <PrivateRoute>
+            <Home />
+          </PrivateRoute>
+        } />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );
