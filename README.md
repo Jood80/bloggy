@@ -29,6 +29,8 @@ Ongoing featured:
 - [ ] Build the remaining db tables
 - [ ] Establish a request between client & server
 - [ ] Enable the users to write their tweets using CKEditor5
+- [ ] Reset the password // Activate > Forgot passowrd?
+- [ ] Update user profile
 - [ ] Pagination
 - [ ] Docerize the project
 - [ ] CLEAN THE CODE
