@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from '@chakra-ui/react'
 import { theme } from './theme/chakra-ui-theme'
 import App from './App';
+import LandingLayout from './components/layout';
 
 
 ReactDOM.render(

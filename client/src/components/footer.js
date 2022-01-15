@@ -50,7 +50,7 @@ export default function Footer() {
         mt={12}
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}>
-        <Text>© 2020 Chakra Templates. All rights reserved</Text>
+        <Text>©2022 All rights reserved</Text>
         <Stack direction={'row'} spacing={6}>
           <SocialButton label={'Twitter'} href={'#'}>
             <FaTwitter />

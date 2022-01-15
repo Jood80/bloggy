@@ -71,38 +71,46 @@ export default function Signup() {
             <form onSubmit={handleSubmit(onSubmit)} >
               <HStack>
                 <Box>
-                  <FormControl isInvalid={errors.firstName} isRequired >
-                    <FormLabel htmlFor='firstName'>First Name</FormLabel>
+                  <FormControl isInvalid={errors.username} isRequired >
+                    <FormLabel htmlFor='username'>username</FormLabel>
                     <Input
-                      id='firstName'
-                      {...register("firstName", {
+                      id='username'
+                      {...register("username", {
                         minLength: { value: 3, message: 'Minimum length should be 3' },
                       })} />
                     <FormErrorMessage>
-                      {errors.firstName && errors.firstName.message}
+                      {errors.firstName && errors.username.message}
                     </FormErrorMessage>
                   </FormControl>
                 </Box>
                 <Box>
-                  <FormControl isInvalid={errors.lastName} isRequired>
-                    <FormLabel htmlFor='lastName'>Last Name</FormLabel>
-                    <Input id="lastName" {...register("lastName")} />
+                  <FormControl isInvalid={errors.email} isRequired>
+                    <FormLabel>Email address</FormLabel>
+                    <Input type="email" id="email" {...register("email")} />
                     <FormErrorMessage>
-                      {errors.lastName && errors.lastName.message}
+                      {errors.email && errors.email.message}
                     </FormErrorMessage>
                   </FormControl>
                 </Box>
               </HStack>
 
               <HStack>
-                <FormControl isInvalid={errors.email} isRequired>
-                  <FormLabel>Email address</FormLabel>
-                  <Input type="email" id="email" {...register("email")} />
-                  <FormErrorMessage>
-                    {errors.email && errors.email.message}
-                  </FormErrorMessage>
+                <FormControl isRequired>
+                  <FormLabel htmlFor="code">Country code</FormLabel>
+                  <Select defaultValue='+970' id="code" {...register("code")}>
+                    <option value='+970'>+970</option>
+                    <option value='+962'>+962</option>
+                    <option value='+87'>+87</option>
+                    <option value='+90'>+90</option>
+                  </Select>
                 </FormControl>
+                <FormControl isRequired>
+                  <FormLabel htmlFor='phone'>Phone number</FormLabel>
+                  <Input id="phone" type="tel" {...register("phone")} />
+                </FormControl>
+              </HStack>
 
+              <Stack>
                 <FormControl isInvalid={errors.password} isRequired >
                   <FormLabel htmlFor='password'>Password</FormLabel>
                   <InputGroup>
@@ -123,23 +131,7 @@ export default function Signup() {
                     {errors.password && errors.password.message}
                   </FormErrorMessage>
                 </FormControl>
-              </HStack>
-
-              <HStack>
-                <FormControl isRequired>
-                  <FormLabel htmlFor="code">Country code</FormLabel>
-                  <Select defaultValue='+970' id="code" {...register("code")}>
-                    <option value='+970'>+970</option>
-                    <option value='+962'>+962</option>
-                    <option value='+87'>+87</option>
-                    <option value='+90'>+90</option>
-                  </Select>
-                </FormControl>
-                <FormControl isRequired>
-                  <FormLabel htmlFor='phone'>Phone number</FormLabel>
-                  <Input id="phone" type="tel" {...register("phone")} />
-                </FormControl>
-              </HStack>
+              </Stack>
 
               <Stack spacing={10} pt={2}>
                 <Button

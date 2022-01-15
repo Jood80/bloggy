@@ -1,5 +1,5 @@
-import { Button, Center, Box } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
+import { Button, Center, Box } from '@chakra-ui/react'
 import { ReactComponent as Error } from '../images/error-404.svg'
 
 
