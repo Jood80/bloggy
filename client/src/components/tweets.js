@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import {
   Avatar,
   Box,
@@ -10,7 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import { testimonials } from '../data/dummy-users';
-import { backgrounds } from '../images/background'
+import { backgrounds } from '../images/backgrounds'
 import { image } from '../images/backgroundImage';
 
 
@@ -129,9 +128,7 @@ export default function Tweets() {
           mr={4}
           mt={4}
           leftIcon={<AddIcon />}>
-          <Link to='/create-post'>
-            Create Post
-          </Link>
+          Create Tweet
         </Button>
       </Box>
       <SimpleGrid
@@ -139,8 +136,8 @@ export default function Tweets() {
         spacing={'20'}
         mt={16}
         mx={'auto'}>
-        {testimonials.map((cardInfo) => (
-          <TestmonialCard {...cardInfo} key={cardInfo.name} />
+        {testimonials.map((cardInfo, index) => (
+          <TestmonialCard {...cardInfo} index={index} />
         ))}
       </SimpleGrid>
       <Box>

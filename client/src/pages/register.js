@@ -34,7 +34,6 @@ export default function Signup() {
   const onSubmit = async (values) => {
     const { email, password } = values
     try {
-      console.log(values)
       await signup(email, password)
       navigator('/home')
     } catch (err) {

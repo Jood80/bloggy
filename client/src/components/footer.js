@@ -7,7 +7,7 @@ import {
   useColorModeValue,
   VisuallyHidden,
 } from '@chakra-ui/react';
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaGoogle } from 'react-icons/fa';
 
 const SocialButton = ({
   children,
@@ -52,14 +52,14 @@ export default function Footer() {
         align={{ base: 'center', md: 'center' }}>
         <Text>©2022 All rights reserved</Text>
         <Stack direction={'row'} spacing={6}>
-          <SocialButton label={'Twitter'} href={'#'}>
-            <FaTwitter />
+          <SocialButton label={'Github'} href={'https://github.com/Jood80'}>
+            <FaGithub />
           </SocialButton>
-          <SocialButton label={'YouTube'} href={'#'}>
-            <FaYoutube />
+          <SocialButton label={'Linkedin '} href={'https://www.linkedin.com/in/nujood-kadhem-4245721b3/'}>
+            <FaLinkedin />
           </SocialButton>
-          <SocialButton label={'Instagram'} href={'#'}>
-            <FaInstagram />
+          <SocialButton label={'Gmail'} href={'https://www.mailto&amp;su=subject+message&amp;to=shawar.nujood@gmail.com'}>
+            <FaGoogle />
           </SocialButton>
         </Stack>
       </Container>

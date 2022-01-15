@@ -14,10 +14,10 @@ import {
   Stack,
   useColorMode,
   Center,
-  Link,
   Alert,
   AlertIcon
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -42,7 +42,7 @@ export default function Navbar() {
       <Box bg={useColorModeValue('red.300', 'gray.900')} zIndex={1}
         style={{ backdropFilter: 'blur(10px)' }} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box>Logo</Box>
+          <Box><Link to='/'>Logo</Link></Box>
 
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
@@ -72,11 +72,10 @@ export default function Navbar() {
                     </Center>
                     <br />
                     <Center>
-                      <p>Username</p>
+                      <p>{currentUser.email.split('@')[0]}</p>
                     </Center>
                     <br />
                     <MenuDivider />
-                    <MenuItem>Account Settings</MenuItem>
                     <MenuItem>
                       <Link onClick={handleLogout} >
                         Logout
