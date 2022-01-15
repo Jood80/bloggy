@@ -50,7 +50,7 @@ export default function Navbar() {
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               </Button>
               {currentUser ? (
-                <Menu>
+                <Menu zIndex={9999}>
                   <MenuButton
                     as={Button}
                     rounded={'base'}
@@ -77,7 +77,7 @@ export default function Navbar() {
                     <br />
                     <MenuDivider />
                     <MenuItem>
-                      <Link onClick={handleLogout} >
+                      <Link to='/' onClick={handleLogout} >
                         Logout
                       </Link>
                     </MenuItem>

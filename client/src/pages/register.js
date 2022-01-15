@@ -37,7 +37,7 @@ export default function Signup() {
       await signup(email, password)
       navigator('/home')
     } catch (err) {
-      if (err.message.includes('already in use')) {
+      if (err.message.includes('already')) {
         setError(`This Email is already in use`)
       } else {
         setError(err.message)
