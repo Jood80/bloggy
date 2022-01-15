@@ -1,10 +1,10 @@
 import LandingLayout from "../components/layout";
-import Posts from "../components/posts";
+import Tweets from "../components/tweets";
 
 export default function Home() {
   return (
     <LandingLayout>
-      <Posts />
+      <Tweets />
     </LandingLayout>
   )
 }

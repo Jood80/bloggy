@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Flex,
   Box,
@@ -13,14 +14,12 @@ import {
   Alert,
   AlertIcon
 } from '@chakra-ui/react';
-import { Link as RouterLink } from 'react-router-dom'
+import { Link as RouterLink, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
-import { useState } from 'react';
 
 export default function Signin() {
-  const { handleSubmit, register, formState: { errors, isSubmitting } } = useForm()
+  const { handleSubmit, register, formState: { isSubmitting } } = useForm()
   const [error, setError] = useState()
   const { login } = useAuth()
   const navigate = useNavigate()

@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { Link as RouterLink, useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
 import {
   Flex,
   Box,
@@ -18,11 +21,7 @@ import {
   Alert,
   AlertIcon
 } from '@chakra-ui/react';
-import { Link as RouterLink } from 'react-router-dom'
-import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 
 export default function Signup() {
