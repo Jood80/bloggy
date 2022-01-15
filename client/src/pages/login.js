@@ -30,6 +30,7 @@ export default function Signin() {
       await login(email, password)
       navigate('/home')
     } catch (err) {
+      console.log(err);
       setError('Failed to login. Wrong email or password')
     }
   }
@@ -55,12 +56,12 @@ export default function Signin() {
           <Stack spacing={4}>
             <form onSubmit={handleSubmit(onSubmit)}>
               <FormControl id="email">
-                <FormLabel >Email address</FormLabel>
+                <FormLabel htmlFor='email'>Email address</FormLabel>
                 <Input type="email" name='email' {...register('email')} />
               </FormControl>
               <FormControl id="password">
-                <FormLabel>Password</FormLabel>
-                <Input type="password" />
+                <FormLabel htmlFor='password'>Password</FormLabel>
+                <Input type="password" {...register('password')} />
               </FormControl>
               <Stack spacing={6}>
                 <Stack
