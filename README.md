@@ -32,6 +32,6 @@ Ongoing featured:
 - [ ] Reset the password // Activate > Forgot passowrd?
 - [ ] Update user profile
 - [ ] Pagination
-- [ ] Docerize the project
-- [ ] CLEAN THE CODE
+- [ ] Dockerize the project
+- [ ] **CLEAN THE CODE**
 - [ ] Use Formik for validation instead of react-form-hook
