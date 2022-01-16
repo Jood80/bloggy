@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Flex,
@@ -24,14 +23,12 @@ import { useAuth } from '../contexts/AuthContext';
 
 export default function Navbar() {
   const [error, setError] = useState()
-  const naviagte = useNavigate()
   const { colorMode, toggleColorMode } = useColorMode();
   const { currentUser, logout } = useAuth()
 
   const handleLogout = async () => {
     try {
       await logout()
-      naviagte('/')
     } catch (error) {
       setError(error)
     }
@@ -39,18 +36,17 @@ export default function Navbar() {
 
   return (
     <>
-      <Box bg={useColorModeValue('red.300', 'gray.900')} zIndex={1}
-        style={{ backdropFilter: 'blur(10px)' }} px={4}>
+      <Box bg={useColorModeValue('red.300', 'gray.900')} zIndex={1000} style={{ position: 'absolute', width: '100%' }}
+        px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Box><Link to='/'>Logo</Link></Box>
-
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
               <Button onClick={toggleColorMode}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               </Button>
               {currentUser ? (
-                <Menu zIndex={9999}>
+                <Menu>
                   <MenuButton
                     as={Button}
                     rounded={'base'}
@@ -65,10 +61,12 @@ export default function Navbar() {
                   <MenuList alignItems={'center'}>
                     <br />
                     <Center>
-                      <Avatar
-                        size={'2xl'}
-                        src={'https://avatars.dicebear.com/api/male/username.svg'}
-                      />
+                      <Link to='/home'>
+                        <Avatar
+                          size={'2xl'}
+                          src={'https://avatars.dicebear.com/api/male/username.svg'}
+                        />
+                      </Link>
                     </Center>
                     <br />
                     <Center>
@@ -76,11 +74,11 @@ export default function Navbar() {
                     </Center>
                     <br />
                     <MenuDivider />
-                    <MenuItem>
-                      <Link to='/' onClick={handleLogout} >
+                    <Link to='/' onClick={handleLogout} >
+                      <MenuItem>
                         Logout
-                      </Link>
-                    </MenuItem>
+                      </MenuItem>
+                    </Link>
                   </MenuList>
                 </Menu>) : null}
             </Stack>
