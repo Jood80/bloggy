@@ -25,8 +25,8 @@ export default function LandingPage() {
         <Stack
           align={'center'}
           spacing={{ base: 8, md: 10 }}
-          pt={{ base: 10, md: 20 }}
-          pb={{ base: 10, md: 2 }}
+          pt={{ base: 10, md: 14 }}
+          pb={{ base: 10, md: 4 }}
           direction={{ base: 'column', md: 'row' }}>
           <Stack flex={1} spacing={{ base: 5, md: 10 }}>
             <Heading
@@ -61,28 +61,28 @@ export default function LandingPage() {
             <Stack
               spacing={{ base: 4, sm: 6 }}
               direction={{ base: 'column', sm: 'row' }}>
-              <Button
-                rounded={'lg'}
-                size={'lg'}
-                fontWeight={'normal'}
-                px={6}
-                colorScheme={'red'}
-                bg={'red.400'}
-                _hover={{ bg: 'red.500' }}>
-                <Link to='/register'>
+              <Link to='/register'>
+                <Button
+                  rounded={'lg'}
+                  size={'lg'}
+                  fontWeight={'normal'}
+                  px={6}
+                  colorScheme={'red'}
+                  bg={'red.400'}
+                  _hover={{ bg: 'red.500' }}>
                   Get started
-                </Link>
-              </Button>
-              <Button
-                size={'lg'}
-                rounded={'lg'}
-                fontWeight={'normal'}
-                px={6}
-              >
-                <Link to='/login'>
+                </Button>
+              </Link>
+              <Link to='/login'>
+                <Button
+                  size={'lg'}
+                  rounded={'lg'}
+                  fontWeight={'normal'}
+                  px={6}
+                >
                   Login
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </Stack>
           </Stack>
           <Flex

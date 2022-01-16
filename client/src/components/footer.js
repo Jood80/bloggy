@@ -39,15 +39,14 @@ const SocialButton = ({
 export default function Footer() {
   return (
     <Box
-      bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container
         as={Stack}
         maxW={'6xl'}
-        py={4}
+        pb={2}
+        pt={20}
         direction={{ base: 'column', md: 'row' }}
         spacing={4}
-        mt={12}
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}>
         <Text>©2022 All rights reserved</Text>
