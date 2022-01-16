@@ -20,20 +20,12 @@ Currently, all used data is dummy.
 - [x] Signin
 - [x] Signup
 - [x] Signout
-- [x] Authentication & authorization //Clinet side only
+- [x] Authentication using Firebase //Clinet side only
 - [x] Basic register form validation
 - [x] Dummy data used in home page
-- [x] Routing
+- [x] Routing & Private Route
 - [x] Basic style // still needs polishing
 - [x] Basic backend structure & database 
 
-Ongoing featured:
-- [ ] Build the remaining db tables
-- [ ] Establish a request between client & server
-- [ ] Enable the users to write their tweets using CKEditor5
-- [ ] Reset the password // Activate > Forgot passowrd?
-- [ ] Update user profile
-- [ ] Pagination
-- [ ] Dockerize the project
-- [ ] **CLEAN THE CODE**
-- [ ] Use Formik for validation instead of react-form-hook
+Ongoing features:
+ - Mentioned in issue [#3](https://github.com/Jood80/fullstack-jereer-task/issues/3)
