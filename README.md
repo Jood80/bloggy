@@ -13,8 +13,6 @@
 **Notes**: 
 - For now the server isn't working properly, no actual request has been sent to the server, nor received.
 Currently, all used data is dummy.
-- This is temprorlary, but you need to **click on the text within the buttons** to activate their actions, 
-such as: Get Started, login, Logout buttons
  
 ----
 
