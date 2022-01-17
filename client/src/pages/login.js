@@ -68,7 +68,7 @@ export default function Signin() {
                   direction={{ base: 'column', sm: 'row' }}
                   align={'start'}
                   justify={'space-between'}>
-                  <Link color={'blue.400'} pt={3}>Forgot password?</Link>
+                  <Link as={RouterLink} to='/reset-password' color={'blue.400'} pt={3}>Forgot password?</Link>
                 </Stack>
                 <Stack>
 

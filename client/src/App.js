@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { LandingPage, Signup, Signin, Home, NotFound } from './pages'
+import { LandingPage, Signup, Signin, Home, NotFound, ResetPassword } from './pages'
 import { AuthProvider } from './contexts/AuthContext'
 import PrivateRoute from './utils/private-route';
 import LandingLayout from './components/layout';
@@ -15,6 +15,7 @@ function App() {
             <Route exact path='/' element={<LandingPage />} />
             <Route path='register' element={<Signup />} />
             <Route path='login' element={<Signin />} />
+            <Route path='reset-password' element={<ResetPassword />} />
             <Route path='home' element={
               <PrivateRoute>
                 <Home />
