@@ -1,9 +1,9 @@
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom'
-import { Signup, Signin, NotFound, ResetPassword } from './pages'
+import { Signup, Signin, NotFound, ResetPassword, Profile } from './pages'
 import { AuthProvider } from './contexts/AuthContext'
 import PrivateRoute from './utils/private-route';
-import LandingLayout from './components/layout';
+import LandingLayout from './components/layouts/main';
 
 const Home = lazy(() => import('./pages/home'))
 const LandingPage = lazy(() => import('./pages/landing-page'))
@@ -22,6 +22,11 @@ function App() {
             <Route path='home' element={
               <PrivateRoute>
                 <Home />
+              </PrivateRoute>
+            } />
+            <Route path='profile' element={
+              <PrivateRoute>
+                <Profile />
               </PrivateRoute>
             } />
             <Route path='*' element={<NotFound />} />
