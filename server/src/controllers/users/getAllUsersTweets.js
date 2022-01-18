@@ -1,4 +1,3 @@
-const { password } = require('pg/lib/defaults');
 const { User, Tweet } = require('../../database/models');
 
 module.exports = async (_req, res, next) => {
@@ -10,8 +9,12 @@ module.exports = async (_req, res, next) => {
       ,
       include: {
         model: Tweet, as: 'tweets',
-        attributes: ['content']
-      }
+        attributes: ['content', 'createdAt'],
+        order: [
+          ['createdAt', 'DESC'],
+        ],
+        limit: 1
+      },
     })
     res.json({ usersData })
   } catch (error) {

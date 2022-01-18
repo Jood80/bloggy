@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { getAllUsers, postUser, postTweet, getUserTweets } = require('../controllers')
+const { postUser, postTweet, getUserTweets, getAllUsersTweets } = require('../controllers')
 
 const { Error404, Error500 } = require('../helpers/errors');
 
@@ -7,7 +7,7 @@ const { Error404, Error500 } = require('../helpers/errors');
 router.get('/tweets/:userId', getUserTweets)
 router.post('/tweet', postTweet)
 router.post('/users', postUser)
-router.get('/feed', getAllUsers)
+router.get('/feed', getAllUsersTweets)
 
 
 router.use(Error404);

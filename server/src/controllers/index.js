@@ -1,4 +1,4 @@
-const { getAllUsers, postUser } = require('./users')
+const { getAllUsersTweets, postUser } = require('./users')
 const { postTweet, getUserTweets } = require('./tweets')
 
-module.exports = { getAllUsers, postUser, postTweet, getUserTweets }
+module.exports = { getAllUsersTweets, postUser, postTweet, getUserTweets }
