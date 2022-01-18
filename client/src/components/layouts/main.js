@@ -1,8 +1,8 @@
 import { Suspense } from "react"
 import { Flex } from "@chakra-ui/react"
-import Navbar from "./navbar"
-import Footer from "./footer"
-import { Loader } from "./loader"
+import Navbar from "../navbar"
+import Footer from "../footer/footer"
+import { Loader } from "../loader"
 
 export default function LandingLayout(props) {
   return (
