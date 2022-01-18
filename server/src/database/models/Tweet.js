@@ -3,16 +3,12 @@ const Sequelize = require('sequelize');
 const { sequelize } = require('../config/dbConnection');
 
 
-const Tweet = sequelize.define('tweet', {
+const Tweet = sequelize.define('tweets', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true,
-  },
-  user_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
   },
   content: {
     type: Sequelize.STRING,

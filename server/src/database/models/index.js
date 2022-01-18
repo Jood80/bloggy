@@ -1,12 +1,9 @@
-const { User } = require('./user')
-const { Tweet } = require('./tweet')
+const { User } = require('./User')
+const { Tweet } = require('./Tweet')
 
 
-User.hasMany(Tweet, { foreignKey: 'user_id', as: 'tweets' })
-Tweet.belongsTo(User, {
-  foreignKey: 'user_id',
-  as: "user"
-})
+User.hasMany(Tweet, { foreignKey: 'userId', as: 'tweets' })
+Tweet.belongsTo(User, { foreignKey: 'userId', as: 'users' })
 
 
 module.exports = { User, Tweet };
