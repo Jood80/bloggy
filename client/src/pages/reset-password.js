@@ -23,7 +23,6 @@ export default function ResetPassword() {
 
 
   const onSubmit = async ({ email }) => {
-    console.log(email);
     try {
       await resetPassword(email)
       setMessage('Please check your email to complete')
