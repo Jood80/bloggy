@@ -30,7 +30,6 @@ export default function Signin() {
       await login(email, password)
       navigate('/home')
     } catch (err) {
-      console.log(err);
       setError('Failed to login. Wrong email or password')
     }
   }

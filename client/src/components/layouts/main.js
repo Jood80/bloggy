@@ -1,6 +1,8 @@
+import { Suspense } from "react"
 import { Flex } from "@chakra-ui/react"
-import Navbar from "./navbar"
-import Footer from "./footer"
+import Navbar from "../navbar"
+import Footer from "../footer/footer"
+import { Loader } from "../loader"
 
 export default function LandingLayout(props) {
   return (
@@ -14,7 +16,9 @@ export default function LandingLayout(props) {
         pt={20}
         {...props}
       >
-        {props.children}
+        <Suspense fallback={<Loader />} >
+          {props.children}
+        </Suspense>
       </Flex>
       <Footer />
     </>
