@@ -4,10 +4,10 @@ const { getAllUsers, postUser, postTweet, getUserTweets } = require('../controll
 const { Error404, Error500 } = require('../helpers/errors');
 
 
-router.get('/tweets/:id', getUserTweets)
-router.post('/users', postUser)
-router.get('/users', getAllUsers)
+router.get('/tweets/:userId', getUserTweets)
 router.post('/tweet', postTweet)
+router.post('/users', postUser)
+router.get('/feed', getAllUsers)
 
 
 router.use(Error404);
