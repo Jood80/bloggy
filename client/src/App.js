@@ -2,7 +2,7 @@ import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import { Signup, Signin, NotFound, ResetPassword, Profile } from './pages'
 import { AuthProvider } from './contexts/AuthContext'
-import PrivateRoute from './utils/private-route';
+import { IsLoggedIn, PrivateRoute } from './utils/special-routes';
 import LandingLayout from './components/layouts/main';
 
 const Home = lazy(() => import('./pages/home'))
@@ -17,8 +17,11 @@ function App() {
           <Routes>
             <Route exact path='/' element={<LandingPage />} />
             <Route path='register' element={<Signup />} />
-            <Route path='login' element={<Signin />} />
             <Route path='reset-password' element={<ResetPassword />} />
+            <Route path='login' element={
+              <IsLoggedIn>
+                <Signin />
+              </IsLoggedIn>} />
             <Route path='home' element={
               <PrivateRoute>
                 <Home />
