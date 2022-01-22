@@ -3,7 +3,7 @@ const { sequelize } = require('../config/dbConnection')
 
 const User = sequelize.define('users', {
   id: {
-    type: Sequelize.INTEGER(11),
+    type: Sequelize.UUID,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
