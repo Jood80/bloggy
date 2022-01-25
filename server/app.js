@@ -12,7 +12,7 @@ app.use('/api', router);
 
 
 app.get('*', (_req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+  res.sendFile(join(__dirname, '..', 'client', 'build', 'index.html'))
 })
 app.use(cors())
 
