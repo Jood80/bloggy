@@ -15,7 +15,6 @@ module.exports = async (req, res, next) => {
       .status(409)
       .json({ message: 'Conflict occurs' })
   } catch (error) {
-    console.error(error);
     next(error)
   }
 }
