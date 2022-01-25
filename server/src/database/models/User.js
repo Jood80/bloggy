@@ -3,18 +3,18 @@ const { sequelize } = require('../config/dbConnection')
 
 const User = sequelize.define('users', {
   id: {
-    type: Sequelize.UUID,
-    autoIncrement: true,
+    type: Sequelize.STRING,
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
+    unique: true
   },
   username: {
-    type: Sequelize.STRING(35),
+    type: Sequelize.STRING,
     allowNull: false,
     unique: true
   },
   email: {
-    type: Sequelize.STRING(35),
+    type: Sequelize.STRING,
     allowNull: false,
     unique: true
   },
