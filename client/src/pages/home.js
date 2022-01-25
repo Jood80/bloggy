@@ -1,5 +1,6 @@
 import { useEffect, useState, Suspense } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
 import {
   Box,
   chakra,
@@ -11,8 +12,9 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
-import { TweetCard } from '../components/tweets/tweet-card';
+import { FeedCard } from '../components/tweets/feed-card';
 import { Loader } from '../components/loader';
+
 
 export default function Home() {
   const [usersInfo, setUsersInfo] = useState()
@@ -21,10 +23,10 @@ export default function Home() {
   useEffect(() => {
     const getTweets = async () => {
       try {
-        const data = await (await fetch('api/feed')).json()
-        return data?.usersData?.length > 0 ? setUsersInfo(data.usersData) : null
+        const data = await axios.get('/api/feed')
+        return data?.data?.usersData?.length > 0 ? setUsersInfo(data.data.usersData) : setError('No Data Recieved')
       } catch (err) {
-        setError('Failed to load data')
+        setError(err.message)
       }
     }
     getTweets()
@@ -85,10 +87,12 @@ export default function Home() {
           spacing={'20'}
           mt={16}
           mx={'auto'}>
-          {usersInfo.map((cardInfo) => (
-            <TweetCard cardInfo={cardInfo} isLazy key={cardInfo?.id} id={cardInfo.name} />
-          )
-          )}
+          {usersInfo.map((cardInfo, index) => (
+            cardInfo.tweets.length > 0 ?
+              <FeedCard cardInfo={cardInfo} isLazy key={cardInfo.id} id={index} />
+              : null
+          ))
+          }
         </SimpleGrid>) : (
           <Box width={{ base: 'lg', sm: 'lg', lg: 'xl' }} margin={'auto'} pt={8}>
             <Alert status='error'>
