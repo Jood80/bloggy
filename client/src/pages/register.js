@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import axios from 'axios';
 import {
   Flex,
   Box,
@@ -31,10 +32,19 @@ export default function Signup() {
   const navigator = useNavigate()
   const { signup } = useAuth()
 
+
   const onSubmit = async (values) => {
-    const { email, password } = values
+    const { username, email, password, code, phone } = values
     try {
-      await signup(email, password)
+      const user = await signup(email, password)
+      await axios.post('/api/users', {
+        uid: user.user.uid,
+        username,
+        email,
+        password,
+        phone: code + phone,
+        avatar: "https://images.unsplash.com/photo-1622017634176-8da750043c54?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+      })
       navigator('/home')
     } catch (err) {
       if (err.message.includes('already')) {

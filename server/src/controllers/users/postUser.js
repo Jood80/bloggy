@@ -1,4 +1,3 @@
-const { v4: uuidv4 } = require('uuid');
 const argon2 = require('argon2')
 const { User } = require('../../database/models');
 
