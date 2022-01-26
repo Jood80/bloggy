@@ -43,7 +43,7 @@ export default function Signup() {
         email,
         password,
         phone: code + phone,
-        avatar: "https://images.unsplash.com/photo-1622017634176-8da750043c54?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+        avatar: 'https://images.unsplash.com/photo-1622017634176-8da750043c54?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
       })
       navigator('/home')
     } catch (err) {
@@ -83,7 +83,7 @@ export default function Signup() {
                     <FormLabel htmlFor='username'>username</FormLabel>
                     <Input
                       id='username'
-                      {...register("username", {
+                      {...register('username', {
                         minLength: { value: 3, message: 'Minimum length should be 3' },
                       })} />
                     <FormErrorMessage>
@@ -94,7 +94,7 @@ export default function Signup() {
                 <Box>
                   <FormControl isInvalid={errors.email} isRequired>
                     <FormLabel>Email address</FormLabel>
-                    <Input type="email" id="email" {...register("email")} />
+                    <Input type='email' id='email' {...register('email')} />
                     <FormErrorMessage>
                       {errors.email && errors.email.message}
                     </FormErrorMessage>
@@ -104,8 +104,8 @@ export default function Signup() {
 
               <HStack>
                 <FormControl isRequired>
-                  <FormLabel htmlFor="code">Country code</FormLabel>
-                  <Select defaultValue='+970' id="code" {...register("code")}>
+                  <FormLabel htmlFor='code'>Country code</FormLabel>
+                  <Select defaultValue='+970' id='code' {...register('code')}>
                     <option value='+970'>+970</option>
                     <option value='+962'>+962</option>
                     <option value='+87'>+87</option>
@@ -114,7 +114,7 @@ export default function Signup() {
                 </FormControl>
                 <FormControl isRequired>
                   <FormLabel htmlFor='phone'>Phone number</FormLabel>
-                  <Input id="phone" type="tel" {...register("phone")} />
+                  <Input id='phone' type='tel' {...register('phone')} />
                 </FormControl>
               </HStack>
 
@@ -122,8 +122,8 @@ export default function Signup() {
                 <FormControl isInvalid={errors.password} isRequired >
                   <FormLabel htmlFor='password'>Password</FormLabel>
                   <InputGroup>
-                    <Input type={showPassword ? 'text' : 'password'} id="password"
-                      {...register("password", {
+                    <Input type={showPassword ? 'text' : 'password'} id='password'
+                      {...register('password', {
                         minLength: { value: 7, message: 'Minimum length should be 7' }
                       })} />
                     <InputRightElement h={'full'}>
@@ -143,8 +143,8 @@ export default function Signup() {
 
               <Stack spacing={10} pt={2}>
                 <Button
-                  loadingText="Submitting"
-                  size="lg"
+                  loadingText='Submitting'
+                  size='lg'
                   bg={'blue.400'}
                   color={'white'}
                   _hover={{

@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react"
-import axios from "axios"
-import CreateTweet from "../components/tweets/create-tweet"
-import { useAuth } from "../contexts/AuthContext"
-import { Alert, AlertIcon } from "@chakra-ui/react"
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import CreateTweet from '../components/tweets/create-tweet'
+import { useAuth } from '../contexts/AuthContext'
+import { Alert, AlertIcon } from '@chakra-ui/react'
 
 export default function Profile() {
   const [error, setError] = useState(false)
@@ -25,7 +25,7 @@ export default function Profile() {
   return (<>
     <CreateTweet />
     {error && (<Alert>
-      <AlertIcon status="error">{error}</AlertIcon>
+      <AlertIcon status='error'>{error}</AlertIcon>
     </Alert>)}
   </>)
 }

@@ -16,10 +16,10 @@ import { Blob } from '../images/blob';
 export default function LandingPage() {
   return (
     <Flex
-      direction="column"
-      align="center"
-      maxW={{ xl: "1200px" }}
-      m="0 auto"
+      direction='column'
+      align='center'
+      maxW={{ xl: '1200px' }}
+      m='0 auto'
     >
       <Container maxW={'7xl'}>
         <Stack

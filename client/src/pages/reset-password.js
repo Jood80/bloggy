@@ -18,7 +18,7 @@ import { useAuth } from '../contexts/AuthContext'
 export default function ResetPassword() {
   const { handleSubmit, register, formState: { isSubmitting } } = useForm()
   const [error, setError] = useState()
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState('')
   const { resetPassword } = useAuth()
 
 
@@ -48,9 +48,9 @@ export default function ResetPassword() {
           p={8}>
           <Stack spacing={4}>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <FormControl id="email">
+              <FormControl id='email'>
                 <FormLabel htmlFor='email'>Email address</FormLabel>
-                <Input type="email" name='email' {...register('email')} />
+                <Input type='email' name='email' {...register('email')} />
               </FormControl>
               <Stack>
                 <Button
@@ -60,10 +60,10 @@ export default function ResetPassword() {
                     bg: 'blue.500',
                   }}
                   isLoading={isSubmitting}
-                  type="submit"
+                  type='submit'
                   mt={2}
                 >
-                  {message ? "Login" : "Reset Password"}
+                  {message ? 'Login' : 'Reset Password'}
                 </Button>
                 <Box>
                   {error && (

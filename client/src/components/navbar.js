@@ -61,7 +61,7 @@ export default function Navbar() {
                   <MenuList alignItems={'center'}>
                     <br />
                     <Center>
-                      <Link to='/home'>
+                      <Link to='/profile'>
                         <Avatar
                           size={'2xl'}
                           src={'https://avatars.dicebear.com/api/male/username.svg'}

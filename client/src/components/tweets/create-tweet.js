@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios'
-import ResizeTextarea from "react-textarea-autosize";
+import ResizeTextarea from 'react-textarea-autosize';
 import {
   Box,
   Button,
@@ -76,10 +76,10 @@ export default function CreateTweet() {
 
           <Textarea placeholder='Basic usage' size='lg' value={tweetContent}
             onChange={(e) => { setTweetContent(e.target.value) }}
-            minH="unset"
-            overflow="hidden"
-            w="100%"
-            resize="none"
+            minH='unset'
+            overflow='hidden'
+            w='100%'
+            resize='none'
             minRows={1}
             as={ResizeTextarea} />
 

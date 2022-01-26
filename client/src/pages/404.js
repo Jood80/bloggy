@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <Center >
       <Box textAlign={'center'}>
-        <Error style={{ width: "35rem", height: "32rem" }} />
+        <Error style={{ width: '35rem', height: '32rem' }} />
         <Button variant={'solid'}
           colorScheme={'teal'}
           size={'md'}

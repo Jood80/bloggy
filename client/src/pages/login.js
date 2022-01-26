@@ -54,13 +54,13 @@ export default function Signin() {
           p={8}>
           <Stack spacing={4}>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <FormControl id="email">
+              <FormControl id='email'>
                 <FormLabel htmlFor='email'>Email address</FormLabel>
-                <Input type="email" name='email' {...register('email')} />
+                <Input type='email' name='email' {...register('email')} />
               </FormControl>
-              <FormControl id="password">
+              <FormControl id='password'>
                 <FormLabel htmlFor='password'>Password</FormLabel>
-                <Input type="password" {...register('password')} />
+                <Input type='password' {...register('password')} />
               </FormControl>
               <Stack spacing={6}>
                 <Stack
@@ -78,7 +78,7 @@ export default function Signin() {
                       bg: 'blue.500',
                     }}
                     isLoading={isSubmitting}
-                    type="submit"
+                    type='submit'
                   >
                     Sign in
                   </Button>
