@@ -8,7 +8,7 @@ import { backgrounds } from '../../images/backgrounds'
 import { image } from '../../images/backgroundImage';
 
 
-export function FeedCard({ cardInfo, id }) {
+export default function FeedCard({ cardInfo, id }) {
   const { username, tweets, avatar } = cardInfo;
   const tweetedText = tweets[0].content
 

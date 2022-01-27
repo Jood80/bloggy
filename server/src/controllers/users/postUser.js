@@ -15,6 +15,7 @@ module.exports = async (req, res, next) => {
         user: {
           id: newUser.dataValues.id,
           username: newUser.dataValues.username,
+          avatar: newUser.dataValues.avatar
         },
       })
     }

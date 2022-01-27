@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
-import { Alert, AlertIcon } from '@chakra-ui/react'
 import axios from 'axios'
-import CreateTweet from '../components/tweets/create-tweet'
+import { Alert, AlertIcon } from '@chakra-ui/react'
+import { CreateTweet, TweetCard } from '../components/tweets'
 import { useAuth } from '../contexts/AuthContext'
-import { TweetCard } from '../components/tweets/tweet-card'
 
 export default function Profile() {
   const [error, setError] = useState(false)
@@ -23,7 +22,7 @@ export default function Profile() {
     } catch (error) {
       setError('Oops, we facing a problem fetching your tweets :/')
     }
-  }, [])
+  }, [userId])
 
   const addTweet = (tweet) => {
     setData([tweet, ...data])

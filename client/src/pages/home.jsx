@@ -12,13 +12,14 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
-import { FeedCard } from '../components/tweets/feed-card';
+import { FeedCard } from '../components/tweets';
 import { Loader } from '../components/loader';
 
 
 export default function Home() {
   const [usersInfo, setUsersInfo] = useState()
   const [error, setError] = useState()
+
 
   useEffect(() => {
     const getTweets = async () => {
@@ -86,7 +87,8 @@ export default function Home() {
         {usersInfo ? (<SimpleGrid
           columns={{ base: 1, xl: 2 }}
           spacing={'20'}
-          mt={16}
+          mt={10}
+          mb={4}
           mx={'auto'}>
           {usersInfo.map((cardInfo, index) => (
             cardInfo.tweets.length > 0 ?

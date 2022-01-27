@@ -1,7 +1,7 @@
 import { chakra, Flex, useColorModeValue } from '@chakra-ui/react';
 
 
-export function TweetCard({ content, createdAt, index }) {
+export default function TweetCard({ content, createdAt }) {
   const [date, detailedTime] = createdAt.split("T")
   const [hour, min] = detailedTime.split(":")
 
