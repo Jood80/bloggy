@@ -11,9 +11,7 @@
 ```
  
 **Notes**: 
-- For now the server isn't working properly, no actual request has been sent to the server, nor received.
-Currently, all used data is dummy.
- 
+- Creating tweet feature isn't at production yet, you can test it out in dev mode - see PR-[#4](https://github.com/Jood80/fullstack-jereer-task/pull/4) 
 ----
 
 **Completed features:**
