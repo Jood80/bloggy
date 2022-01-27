@@ -8,7 +8,8 @@ module.exports = async (req, res, next) => {
 
     if (newTweet) {
       return res.status(201).send({
-        message: 'Successfully created tweet'
+        message: 'Successfully created tweet',
+        newTweet
       })
     }
     return res

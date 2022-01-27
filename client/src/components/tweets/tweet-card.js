@@ -1,13 +1,14 @@
 import { chakra, Flex, useColorModeValue } from '@chakra-ui/react';
-import { image } from '../../images/backgroundImage';
-import { backgrounds } from '../../images/backgrounds';
+
 
 export function TweetCard({ content, createdAt, index }) {
+  const [date, detailedTime] = createdAt.split("T")
+  const [hour, min] = detailedTime.split(":")
 
 
   return (
     <Flex
-      boxShadow={'lg'}
+      boxShadow={'dark-lg'}
       maxW={'640px'}
       direction={{ base: 'column-reverse', md: 'row' }}
       width={'full'}
@@ -17,31 +18,6 @@ export function TweetCard({ content, createdAt, index }) {
       justifyContent={'space-between'}
       position={'relative'}
       bg={useColorModeValue('white', 'gray.800')}
-      _after={{
-        content: '""',
-        position: 'absolute',
-        height: '21px',
-        width: '29px',
-        left: '35px',
-        top: '-10px',
-        backgroundSize: 'cover',
-        backgroundImage: image,
-      }}
-      _before={{
-        content: '""',
-        position: 'absolute',
-        zIndex: '-1',
-        height: 'full',
-        maxW: '660px',
-        width: 'full',
-        filter: 'blur(40px)',
-        transform: 'scale(0.85)',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        top: 0,
-        left: 0,
-        backgroundImage: backgrounds[index % 4],
-      }}
     >
       <Flex
         direction={'column'}
@@ -55,7 +31,8 @@ export function TweetCard({ content, createdAt, index }) {
           {content}
         </chakra.p>
         <chakra.p fontFamily={'Work Sans'} fontWeight={'bold'} fontSize={14}>
-          {createdAt}
+          {hour + ":" + min + " / "
+            + date}
         </chakra.p>
       </Flex>
     </Flex>
