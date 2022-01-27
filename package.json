@@ -12,6 +12,12 @@
     "build": "cd client && yarn run build",
     "project-setup": "npm install && cd client && yarn",
     "heroku-postbuild": "cd client && yarn && yarn run build",
+    "migrate:create": "sequelize migration:generate --name",
+    "migrate:up": "sequelize db:migrate",
+    "migrate:down": "sequelize db:migrate:undo:all",
+    "seeds:insert": "sequelize db:seed:all",
+    "seeds:delete": "sequelize db:seed:undo:all",
+    "pre-server": "npm run migrate:up && npm run seeds:insert",
     "server": "nodemon server/index.js",
     "client": "cd client && yarn start",
     "dev": "concurrently 'npm run server' 'npm run client'"
