@@ -33,6 +33,7 @@ export default function Home() {
   }, [])
 
 
+
   return (
     <Flex
       textAlign={'center'}
@@ -89,7 +90,7 @@ export default function Home() {
           mx={'auto'}>
           {usersInfo.map((cardInfo, index) => (
             cardInfo.tweets.length > 0 ?
-              <FeedCard cardInfo={cardInfo} isLazy key={cardInfo.id} id={index} />
+              <FeedCard cardInfo={cardInfo} key={cardInfo.id} id={index} />
               : null
           ))
           }

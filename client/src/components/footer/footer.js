@@ -16,7 +16,8 @@ export default function Footer() {
         as={Stack}
         maxW={'6xl'}
         bottom={0}
-        pt={20}
+        position={'fixed'}
+        pb={2}
         direction={{ base: 'column', md: 'row' }}
         spacing={4}
         justify={{ base: 'center', md: 'center' }}

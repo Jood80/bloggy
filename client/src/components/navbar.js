@@ -18,6 +18,8 @@ import {
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { FaHome } from 'react-icons/fa';
+
 import { useAuth } from '../contexts/AuthContext';
 
 
@@ -39,7 +41,12 @@ export default function Navbar() {
       <Box bg={useColorModeValue('red.300', 'gray.900')} zIndex={1000} style={{ position: 'absolute', width: '100%' }}
         px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box><Link to='/'>Logo</Link></Box>
+          <Box>
+            {currentUser
+              ? <Link to='/home'><FaHome /></Link>
+              : <Link to='/'><FaHome /></Link>
+            }
+          </Box>
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
               <Button onClick={toggleColorMode}>

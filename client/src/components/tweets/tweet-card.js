@@ -1,16 +1,9 @@
-import {
-  Avatar,
-  chakra,
-  Flex,
-  useColorModeValue,
-} from '@chakra-ui/react';
-import { backgrounds } from '../../images/backgrounds'
+import { chakra, Flex, useColorModeValue } from '@chakra-ui/react';
 import { image } from '../../images/backgroundImage';
+import { backgrounds } from '../../images/backgrounds';
 
+export function TweetCard({ content, createdAt, index }) {
 
-export function TweetCard({ cardInfo, id }) {
-  const { username, tweets, avatar } = cardInfo;
-  const content = tweets[0].content
 
   return (
     <Flex
@@ -19,6 +12,7 @@ export function TweetCard({ cardInfo, id }) {
       direction={{ base: 'column-reverse', md: 'row' }}
       width={'full'}
       rounded={'xl'}
+      my={5}
       p={10}
       justifyContent={'space-between'}
       position={'relative'}
@@ -38,16 +32,17 @@ export function TweetCard({ cardInfo, id }) {
         position: 'absolute',
         zIndex: '-1',
         height: 'full',
-        maxW: '640px',
+        maxW: '660px',
         width: 'full',
         filter: 'blur(40px)',
-        transform: 'scale(0.98)',
+        transform: 'scale(0.85)',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         top: 0,
         left: 0,
-        backgroundImage: backgrounds[id % 4],
-      }}>
+        backgroundImage: backgrounds[index % 4],
+      }}
+    >
       <Flex
         direction={'column'}
         textAlign={'left'}
@@ -60,23 +55,9 @@ export function TweetCard({ cardInfo, id }) {
           {content}
         </chakra.p>
         <chakra.p fontFamily={'Work Sans'} fontWeight={'bold'} fontSize={14}>
-          {username}
-          <chakra.span
-            fontFamily={'Inter'}
-            fontWeight={'medium'}
-            color={'gray.500'}>
-            {' '}
-            - {'role'}
-          </chakra.span>
+          {createdAt}
         </chakra.p>
       </Flex>
-      <Avatar
-        src={avatar}
-        height={'80px'}
-        width={'80px'}
-        alignSelf={'center'}
-        m={{ base: '0 0 35px 0', md: '0 0 0 50px' }}
-      />
     </Flex>
   );
 }
