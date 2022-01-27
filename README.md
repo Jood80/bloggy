@@ -11,7 +11,7 @@
 ```
  
 **Notes**: 
-- **Creating tweet feature currently avaiable at devlopemnt- check it out here [#4](https://github.com/Jood80/fullstack-jereer-task/pull/4)**
+- **Creating tweet feature currently avaiable at development- check it out here [#4](https://github.com/Jood80/fullstack-jereer-task/pull/4)**
 
 ----
 
