@@ -1,0 +1,1 @@
+export const generateUnsplashImage = (query) => `https://source.unsplash.com/random/200x200/?${query ?? "avatar"}`;

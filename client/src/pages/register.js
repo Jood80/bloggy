@@ -24,6 +24,7 @@ import {
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useAuth } from '../contexts/AuthContext'
+import { generateUnsplashImage } from '../utils/avatar-generator';
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
@@ -43,7 +44,7 @@ export default function Signup() {
         email,
         password,
         phone: code + phone,
-        avatar: 'https://images.unsplash.com/photo-1622017634176-8da750043c54?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
+        avatar: generateUnsplashImage()
       })
       navigator('/home')
     } catch (err) {
@@ -54,6 +55,7 @@ export default function Signup() {
       }
     }
   }
+
 
   return (
     <Flex
