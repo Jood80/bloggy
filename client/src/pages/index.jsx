@@ -1,0 +1,7 @@
+export { default as LandingPage } from './landing-page'
+export { default as Home } from './home'
+export { default as Profile } from './profile.jsx'
+export { default as Signup } from './register'
+export { default as Signin } from './login'
+export { default as NotFound } from './404'
+export { default as ResetPassword } from './reset-password'

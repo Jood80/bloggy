@@ -8,14 +8,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint . --fix",
     "start": "NODE_ENV=production node server/index.js",
     "build": "cd client && yarn run build",
     "project-setup": "npm install && cd client && yarn",
     "heroku-postbuild": "cd client && yarn && yarn run build",
+    "migrate:create": "npx sequelize-cli migration:generate --name",
+    "migrate:up": "npx sequelize-cli db:migrate",
+    "migrate:down": "npx sequelize-cli db:migrate:undo:all",
+    "seeds:insert": "npx sequelize-cli db:seed:all",
+    "seeds:delete": "npx sequelize-cli db:seed:undo:all",
+    "pre-server": "npm run migrate:up && npm run seeds:insert",
     "server": "nodemon server/index.js",
     "client": "cd client && yarn start",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently 'npm run server' 'npm run client'"
   },
   "repository": {
     "type": "git",
@@ -29,6 +34,7 @@
   },
   "homepage": "https://github.com/Jood80/fullstack-jereer-task#readme",
   "dependencies": {
+    "compression": "^1.7.4",
     "concurrently": "^7.0.0",
     "cors": "^2.8.5",
     "env2": "^2.2.2",
@@ -38,15 +44,9 @@
   },
   "devDependencies": {
     "argon2": "^0.28.3",
-    "eslint": "^8.6.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-security": "^1.4.0",
-    "eslint-plugin-jest": "^25.3.4",
-    "eslint-plugin-node": "^11.1.0",
     "nodemon": "^2.0.15",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "sequelize": "^6.13.0",
+    "sequelize-cli": "^6.4.1"
   }
 }

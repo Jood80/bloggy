@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "inspiron",
+    "password": 123,
+    "database": "jereer_development",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
