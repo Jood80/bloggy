@@ -27,5 +27,5 @@
 - [x] Basic backend structure & database 
 - [x] Dark mode
 
-Ongoing features:
+**Development features:**
  - Mentioned in issue [#3](https://github.com/Jood80/fullstack-jereer-task/issues/3)
