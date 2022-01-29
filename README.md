@@ -11,20 +11,21 @@
 ```
  
 **Notes**: 
-- **Creating tweet feature currently avaiable at development- check it out here [#4](https://github.com/Jood80/fullstack-jereer-task/pull/4)**
+- **The rest of backend/queries implementation & create tweet feature can be checked under`dev` branch/ PR [#4](https://github.com/Jood80/fullstack-jereer-task/pull/4)**
 
 ----
 
-**Completed features:**
+**Production features:**
 - [x] Signin
 - [x] Signup
-- [x] Signout
-- [x] Authentication using Firebase //Clinet side only
+- [x] Signout 
+- [x] Authentication using Firebase //Client side only
 - [x] Basic register form validation
-- [x] Dummy data used in home page
+- [x] Dummy data used in the home page
 - [x] Routing & Private Route
 - [x] Basic style // still needs polishing
 - [x] Basic backend structure & database 
+- [x] Dark mode
 
 Ongoing features:
  - Mentioned in issue [#3](https://github.com/Jood80/fullstack-jereer-task/issues/3)
