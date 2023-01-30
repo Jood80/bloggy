@@ -5,7 +5,7 @@
 
 ### Run Locally
 ```
- - $ git clone https://github.com/Jood80/fullstack-jereer-task.git
+ - $ git clone https://github.com/Jood80/bloggy.git
  - $ cd client && yarn
  - $ yarn start
 ```
